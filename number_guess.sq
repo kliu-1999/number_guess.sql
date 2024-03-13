@@ -1,0 +1,122 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.17 (Ubuntu 12.17-1.pgdg22.04+1)
+-- Dumped by pg_dump version 12.17 (Ubuntu 12.17-1.pgdg22.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE number_guess;
+--
+-- Name: number_guess; Type: DATABASE; Schema: -; Owner: freecodecamp
+--
+
+CREATE DATABASE number_guess WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+
+
+ALTER DATABASE number_guess OWNER TO freecodecamp;
+
+\connect number_guess
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: record; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.record (
+    record_id integer NOT NULL,
+    username character varying(22),
+    best_game integer,
+    games_played integer
+);
+
+
+ALTER TABLE public.record OWNER TO freecodecamp;
+
+--
+-- Name: record_record_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.record_record_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.record_record_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: record_record_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.record_record_id_seq OWNED BY public.record.record_id;
+
+
+--
+-- Name: record record_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.record ALTER COLUMN record_id SET DEFAULT nextval('public.record_record_id_seq'::regclass);
+
+
+--
+-- Data for Name: record; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.record VALUES (13, 'Kevin', 9, 2);
+INSERT INTO public.record VALUES (15, 'user_1710355744538', 49, 2);
+INSERT INTO public.record VALUES (14, 'user_1710355744539', 58, 5);
+INSERT INTO public.record VALUES (17, 'user_1710355817899', 756, 2);
+INSERT INTO public.record VALUES (16, 'user_1710355817900', 169, 5);
+INSERT INTO public.record VALUES (19, 'user_1710355824635', 447, 2);
+INSERT INTO public.record VALUES (18, 'user_1710355824636', 353, 5);
+INSERT INTO public.record VALUES (21, 'user_1710355842652', 340, 2);
+INSERT INTO public.record VALUES (20, 'user_1710355842653', 59, 5);
+
+
+--
+-- Name: record_record_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.record_record_id_seq', 21, true);
+
+
+--
+-- Name: record record_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.record
+    ADD CONSTRAINT record_pkey PRIMARY KEY (record_id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
